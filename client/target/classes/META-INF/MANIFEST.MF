@@ -1,0 +1,34 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1493978787426
+Build-Jdk: 1.8.0_111
+Built-By: kearls
+Bundle-Description: An example showing how to trace incoming and outgoin
+ g messages from Camel with OpenTracing
+Bundle-DocURL: https://www.apache.org/
+Bundle-License: https://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-ManifestVersion: 2
+Bundle-Name: camel-example-opentracing-client
+Bundle-SymbolicName: camel-example-opentracing-client
+Bundle-Vendor: The Apache Software Foundation
+Bundle-Version: 2.20.0.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Implementation-Title: Camel :: Example :: OpenTracing :: Client
+Implementation-URL: http://camel.apache.org/camel-parent/examples/camel-
+ example-opentracing/camel-example-opentracing-client
+Implementation-Vendor: The Apache Software Foundation
+Implementation-Vendor-Id: org.apache.camel
+Implementation-Version: 2.20.0-SNAPSHOT
+Import-Package: org.apache.camel;version="[2.20,2.21)",org.apache.camel.
+ builder;version="[2.20,2.21)",org.apache.camel.cdi;version="[2.20,2.21)
+ ",org.apache.camel.management.event;version="[2.20,2.21)",org.apache.ca
+ mel.model;version="[2.20,2.21)",org.apache.camel.opentracing;version="[
+ 2.20,2.21)",javax.enterprise.event;version="[1.1,2)",javax.inject,org.o
+ sgi.framework;version="[1.5,2)",org.osgi.framework.wiring;version="[1.0
+ ,2)"
+Karaf-Info: Camel;camel-example-opentracing-client=2.20.0-SNAPSHOT
+Originally-Created-By: Apache Maven Bundle Plugin
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Specification-Title: Camel :: Example :: OpenTracing :: Client
+Specification-Vendor: The Apache Software Foundation
+Specification-Version: 2.20.0-SNAPSHOT
+Tool: Bnd-3.3.0.201609221906
