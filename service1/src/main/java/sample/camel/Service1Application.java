@@ -16,6 +16,16 @@
  */
 package sample.camel;
 
+import com.uber.jaeger.Tracer;
+import com.uber.jaeger.metrics.Metrics;
+import com.uber.jaeger.metrics.NullStatsReporter;
+import com.uber.jaeger.reporters.RemoteReporter;
+import com.uber.jaeger.reporters.Reporter;
+import com.uber.jaeger.samplers.ConstSampler;
+import com.uber.jaeger.samplers.Sampler;
+import com.uber.jaeger.senders.Sender;
+import com.uber.jaeger.senders.UDPSender;
+import org.apache.camel.language.Bean;
 import org.apache.camel.opentracing.starter.CamelOpenTracing;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -35,6 +45,15 @@ public class Service1Application {
      */
     public static void main(String[] args) {
         SpringApplication.run(Service1Application.class, args);
+    }
+
+    @Bean(ref = "tracer")
+    public static io.opentracing.Tracer initTracer() {
+        Sampler sampler = new ConstSampler(true);
+        Sender sender = new UDPSender(null, 0, 0);
+        Reporter reporter = new RemoteReporter(sender, 500, 1000, Metrics.fromStatsReporter(new NullStatsReporter()));
+        Tracer tracer = new Tracer.Builder("serviceONE", reporter, sampler).build();
+        return tracer;
     }
 
 }
