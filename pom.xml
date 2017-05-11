@@ -34,6 +34,7 @@
   <properties>
     <category>Management and Monitoring</category>
     <title>OpenTracing</title>
+    <version.jaeger>0.18.0</version.jaeger>
   </properties>
 
   <modules>
@@ -42,5 +43,19 @@
     <module>service2</module>
     <module>loggingtracer</module>
   </modules>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.uber.jaeger</groupId>
+        <artifactId>jaeger-core</artifactId>
+        <version>${version.jaeger}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <profiles>
+  
+  </profiles>
 
 </project>
