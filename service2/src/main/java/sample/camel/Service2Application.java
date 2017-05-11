@@ -24,7 +24,7 @@ import com.uber.jaeger.reporters.Reporter;
 import com.uber.jaeger.samplers.ConstSampler;
 import com.uber.jaeger.samplers.Sampler;
 import com.uber.jaeger.senders.Sender;
-import com.uber.jaeger.senders.UDPSender;
+import com.uber.jaeger.senders.UdpSender;
 import org.apache.camel.language.Bean;
 import org.apache.camel.main.Main;
 
@@ -44,7 +44,7 @@ public final class Service2Application {
     @Bean(ref = "tracer")
     public static io.opentracing.Tracer initTracer() {
         Sampler sampler = new ConstSampler(true);
-        Sender sender = new UDPSender(null, 0, 0);
+        Sender sender = new UdpSender(null, 0, 0);
         Reporter reporter = new RemoteReporter(sender, 500, 1000, Metrics.fromStatsReporter(new NullStatsReporter()));
         Tracer tracer = new Tracer.Builder("service222", reporter, sampler).build();
         return tracer;
